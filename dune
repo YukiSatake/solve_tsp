@@ -1,0 +1,14 @@
+(executables
+  (names main)
+  (public_names solve_tsp)
+  (modules
+    tsp
+    tsplib
+    main
+  )
+  (libraries
+     core
+     vg
+     tensorflow)
+  (package solve_tsp)
+)
