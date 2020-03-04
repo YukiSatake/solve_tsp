@@ -73,4 +73,7 @@ let read_from_file filename =
     Printf.eprintf "Invalid format: %s%s\n" msg stack;
     raise e
 
-let to_tsp (tsplib: t) = tsplib.nodes
+let to_tsp (tsplib: t) = 
+  tsplib.nodes
+  |> List.fold_left ~f:(fun acc (n, x, y) ->
+         Map.Poly.add_exn acc ~key:n ~data:(x, y)) ~init:Map.Poly.empty
